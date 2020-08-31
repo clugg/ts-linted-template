@@ -36,7 +36,6 @@
         "generator-star-spacing": 2,
         "grouped-accessor-pairs": 2,
         "guard-for-in": 2,
-        "indent": [2, 4],
         "init-declarations": [2, "always"],
         "key-spacing": 2,
         "keyword-spacing": 2,
