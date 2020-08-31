@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "es2015",
+        "allowJs": true,
+        "checkJs": true,
+        "sourceMap": false,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "downlevelIteration": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "esModuleInterop": true
+    },
+    "include": ["src/**/*.js", "src/**/*.ts", "src/**/*.vue"],
+    "exclude": ["node_modules"]
+}
