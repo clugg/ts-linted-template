@@ -1,26 +1,130 @@
 {
     "name": "ts-linted-template",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "dist/index.js",
     "repository": "https://github.com/clugg/ts-linted-template",
     "author": "clug",
     "license": "MIT",
     "private": true,
     "scripts": {
-        "lint": "eslint . --ext .ts",
-        "lint-and-fix": "eslint . --fix --ext .ts",
-        "watch": "tsc -w",
-        "build": "yarn run lint-and-fix && tsc",
+        "lint": "yarn run eslint src/",
+        "lint-fix": "yarn run eslint --fix src/",
+        "format": "yarn run prettier src/ --write --ignore-unknown",
+        "lff": "yarn run lint-fix && yarn run format",
+        "watch": "yarn run tsc -w",
+        "build": "yarn run lff && yarn run tsc",
         "start": "node dist/index.js"
+    },
+    "eslintConfig": {
+        "root": true,
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended",
+            "prettier"
+        ],
+        "parserOptions": {
+            "project": [
+                "tsconfig.json"
+            ]
+        },
+        "rules": {
+            "@typescript-eslint/array-type": "error",
+            "@typescript-eslint/default-param-last": "error",
+            "@typescript-eslint/dot-notation": "error",
+            "@typescript-eslint/init-declarations": "error",
+            "@typescript-eslint/no-array-constructor": "error",
+            "@typescript-eslint/no-duplicate-imports": [
+                "error",
+                {
+                    "includeExports": true
+                }
+            ],
+            "@typescript-eslint/no-empty-function": "error",
+            "@typescript-eslint/no-implied-eval": "error",
+            "@typescript-eslint/no-invalid-this": "error",
+            "@typescript-eslint/no-shadow": "error",
+            "@typescript-eslint/no-unused-expressions": "error",
+            "@typescript-eslint/no-unused-vars": [
+                "error",
+                {
+                    "varsIgnorePattern": "^_$",
+                    "argsIgnorePattern": "^_$"
+                }
+            ],
+            "@typescript-eslint/no-use-before-define": "error",
+            "@typescript-eslint/no-useless-constructor": "error",
+            "@typescript-eslint/require-await": "error",
+            "array-callback-return": "error",
+            "consistent-return": "error",
+            "default-case-last": "error",
+            "eqeqeq": [
+                "error",
+                "always",
+                {
+                    "null": "never"
+                }
+            ],
+            "max-classes-per-file": "error",
+            "no-caller": "error",
+            "no-console": "warn",
+            "no-constructor-return": "error",
+            "no-else-return": "error",
+            "no-eval": "error",
+            "no-extend-native": "error",
+            "no-extra-bind": "error",
+            "no-labels": "error",
+            "no-lone-blocks": "error",
+            "no-lonely-if": "error",
+            "no-multi-assign": "error",
+            "no-new-func": "error",
+            "no-new-object": "error",
+            "no-new-wrappers": "error",
+            "no-param-reassign": "error",
+            "no-plusplus": "error",
+            "no-promise-executor-return": "error",
+            "no-return-await": "error",
+            "no-template-curly-in-string": "error",
+            "no-unneeded-ternary": "error",
+            "no-unreachable-loop": "error",
+            "no-useless-call": "error",
+            "no-useless-concat": "error",
+            "no-useless-rename": "error",
+            "no-useless-return": "error",
+            "no-var": "error",
+            "no-void": "error",
+            "object-shorthand": "error",
+            "operator-assignment": "error",
+            "prefer-arrow-callback": "error",
+            "prefer-const": "error",
+            "prefer-exponentiation-operator": "error",
+            "prefer-object-has-own": "error",
+            "prefer-object-spread": "error",
+            "prefer-regex-literals": "error",
+            "prefer-rest-params": "error",
+            "prefer-spread": "error",
+            "prefer-template": "error",
+            "sort-imports": "error",
+            "spaced-comment": "error",
+            "strict": "error"
+        }
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "quoteProps": "as-needed",
+        "trailingComma": "all"
     },
     "devDependencies": {
         "@types/node": "*",
-        "@typescript-eslint/eslint-plugin": "^4.21",
-        "@typescript-eslint/parser": "^4.21",
-        "eslint": "^7.23",
-        "eslint-config-prettier": "^8.1",
-        "eslint-plugin-prettier": "^3.3",
-        "prettier": "^2.2",
-        "typescript": "^4.2"
+        "@typescript-eslint/eslint-plugin": "^5.14.0",
+        "@typescript-eslint/parser": "^5.14.0",
+        "eslint": "^8.11.0",
+        "eslint-config-prettier": "^8.5.0",
+        "prettier": "^2.5.1",
+        "typescript": "^4.6.2"
     }
 }
